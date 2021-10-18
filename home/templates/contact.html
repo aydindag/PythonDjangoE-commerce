@@ -1,0 +1,88 @@
+{% extends "homebase.html" %}
+{% load static %}
+{% block title %} Contact {% endblock %}
+
+{% block body %}
+
+    <div id="breadcrumb">
+		<div class="container">
+			<u1 class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">Contact</li>
+                </u1>
+        </div>
+    </div>
+
+
+
+
+<div id="contact-page" class="container">
+    	<div class="bg">
+	    	<div class="row">
+	    		<div class="col-sm-12">
+					<h2 class="title text-center">Bizimle <strong>İletişime Geçin</strong></h2>
+
+				</div>
+			</div>
+    		<div class="row">
+	    		<div class="col-sm-8">
+	    			<div class="contact-form">
+	    				<h2 class="title text-center">MESAJINIZ</h2>
+	    				<div class="status alert alert-success" style="display: none"></div>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}" role="alert">
+                                    {{ message }}
+
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+				    	<form action="/contact" id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+				            {% csrf_token %}
+                            {{ form.as_p }}
+
+                            <input type="submit" value="SEND FORM">
+
+				        </form>
+	    			</div>
+	    		</div>
+	    		<div class="col-sm-4">
+	    			<div class="contact-info">
+	    				<h2 class="title text-center">FİRMA</h2>
+	    				<address>
+	    					<p>E-Aydın Inc.</p>
+							<p>Karabük 100.yıl Mahallesi, 1077.nolu Sokak</p>
+							<p>Karabük Türkiye</p>
+							<p>Mobile: 505 939 70 66</p>
+							<p>Email: aydin6401@hotmail.com</p>
+	    				</address>
+	    				<div class="social-networks">
+	    					<h2 class="title text-center">Sosyal Ağlar</h2>
+							<ul>
+								<li>
+									<a href="https://www.facebook.com/aydndag"><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="https://twitter.com/aydn_dag"><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-youtube"></i></a>
+								</li>
+							</ul>
+	    				</div>
+	    			</div>
+    			</div>
+	    	</div>
+    	</div>
+    </div><!--/#contact-page-->
+
+
+
+
+
+
+
+{% endblock %}

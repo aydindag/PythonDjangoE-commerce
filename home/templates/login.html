@@ -1,0 +1,76 @@
+{% extends "homebase.html" %}
+
+{% block title %} {{ user.first_name }} {{ user.last_name }}{% endblock %}
+
+{% block body %}
+
+    <div id="breadcrumb">
+		<div class="container">
+			<u1 class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li class="active">Login</li>
+                </u1>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+
+    <section id="form"><!--form-->
+		<div class="container">
+            {% if hata %}
+              <b>  Login hatası :  {{  hata }} </b>
+            {% endif %}
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+                        <h2> <b>Kullanıcı Bilgilerini Giriniz </b></h2>
+						<form id="checkout-form" action="#" class="clearfix" method="post">
+                            {% csrf_token %}
+							<input  class="input" type="text" name="username" placeholder="Kullanıcı Adı" required />
+							<input  class="input" type="password" name="password" placeholder="Şifrenizi Giriniz" required/>
+							<span>
+								<input type="checkbox" class="checkbox">
+								Beni hatırla
+							</span>
+							<input  class="input" type="submit" value="Login">
+						</form>
+					</div><!--/login form-->
+				</div>
+
+
+                <div class="col-sm-1">
+					<h2 class="or">OR</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>New User Signup!</h2>
+						<form action="#">
+							<input type="text" placeholder="Name"/>
+							<input type="email" placeholder="Email Address"/>
+							<input type="password" placeholder="Password"/>
+                            <input type="password" placeholder="Password Again"/>
+							<input  class="input" type="submit" value="Login">
+						</form>
+					</div><!--/sign up form-->
+				</div>
+
+
+
+
+			</div>
+		</div>
+	</section><!--/form-->
+
+
+
+
+
+
+        </div>
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% load static %}
+<section id="slider"><!--slider-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li>
+                            <li data-target="#slider-carousel" data-slide-to="4"></li>
+                            <li data-target="#slider-carousel" data-slide-to="5"></li>
+                            <li data-target="#slider-carousel" data-slide-to="6"></li>
+                            <li data-target="#slider-carousel" data-slide-to="7"></li>
+                            <li data-target="#slider-carousel" data-slide-to="8"></li>
+                            <li data-target="#slider-carousel" data-slide-to="9"></li>
+                            <li data-target="#slider-carousel" data-slide-to="10"></li>
+
+						</ol>
+
+						<div class="carousel-inner">
+                            <div class="item active">
+								<div class="col-sm-6">
+									<h1><span>E</span>-AYDIN GİYİM</h1>
+									<h2>E-AYDIN GİYİM Ayakabı Sitemize Hoşgeldiniz</h2>
+									<p>2019 tüm trend ayakkabıları sizlerle </p>
+
+								</div>
+								<div class="col-sm-6">
+									<img src="{% static 'images/home/anaresim.jpg'%}" class="girl img-responsive" alt="" />
+
+								</div>
+							</div>
+
+
+
+                            {% for rs in products %}
+
+                            <div class="item">
+								<div class="col-sm-6">
+									<h1><span>E</span>-AYDIN GİYİM</h1>
+									<h2>{{ rs.title}}</h2>
+									<p>{{ rs.description }}</p>
+
+									<button>
+                        <a type="button" href="/product/{{ rs.id }}">Satın Al</a>
+                                </button>
+								</div>
+								<div class="col-sm-6">
+									<img src="{{ rs.image.url}}" class="girl img-responsive" alt="" />
+
+								</div>
+							</div>
+                             {%  endfor %}
+
+						</div>
+
+						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+							<i class="fa fa-angle-left"></i>
+						</a>
+						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+							<i class="fa fa-angle-right"></i>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section><!--/slider-->
